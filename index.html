@@ -141,9 +141,10 @@ nav.bubbles{display:flex;gap:10px}
 .vinfo td{padding:2px 8px;text-align:left}
 .vinfo td:first-child{color:var(--beige);font-weight:600}
 .map{border-radius:16px;overflow:hidden;background:#EFE8DA;min-height:260px;position:relative}
-.map svg{width:100%;height:100%;display:block}
-.pin{transform-origin:50% 100%;animation:pin 2.4s ease-in-out infinite}
-@keyframes pin{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.map-fallback{position:absolute;inset:0;display:grid;place-items:center;color:var(--walnut);font-size:14px}
+.dir{display:inline-block;margin:0 auto;padding:11px 22px;border-radius:999px;background:var(--cream);color:var(--burgundy);font-weight:600;text-decoration:none;transition:transform .25s,background .25s}
+.dir:hover{transform:translateY(-2px);background:#fff}
 .vpill{position:absolute;right:-64px;top:50%;translate:0 -50%;writing-mode:vertical-rl;background:var(--cream);color:var(--burgundy);border:0;border-radius:999px;padding:22px 12px;font:800 19px var(--display);white-space:nowrap;cursor:pointer;transition:transform .3s}
 .vpill:hover{transform:rotate(-4deg) scale(1.05)}
 
@@ -428,19 +429,11 @@ html.has-cur .cur.small.on{opacity:1}
         <tr><td>Sat – Sun</td><td>10:30 am – 8:00 pm</td></tr>
       </table>
       <div class="muted">Weekend tables are 90 minutes,<br>so everyone gets some cat time.</div>
+      <a class="dir" href="https://maps.app.goo.gl/EoxHoUNVV4k3ypaF6" target="_blank" rel="noopener">Get directions →</a>
     </div>
-    <div class="map" aria-label="Stylised map of the area">
-      <svg viewBox="0 0 420 280" preserveAspectRatio="xMidYMid slice">
-        <rect width="420" height="280" fill="#EFE8DA"/>
-        <g fill="#E2D8C3"><rect x="20" y="20" width="110" height="70" rx="6"/><rect x="150" y="20" width="90" height="70" rx="6"/><rect x="260" y="20" width="140" height="70" rx="6"/><rect x="20" y="120" width="70" height="60" rx="6"/><rect x="110" y="120" width="130" height="60" rx="6"/><rect x="260" y="120" width="60" height="140" rx="6"/><rect x="340" y="120" width="60" height="60" rx="6"/><rect x="20" y="200" width="220" height="60" rx="6"/><rect x="340" y="200" width="60" height="60" rx="6"/></g>
-        <g fill="#C9D3C0"><circle cx="70" cy="230" r="22"/><circle cx="370" cy="225" r="18"/></g>
-        <g stroke="#fff" stroke-width="10" stroke-linecap="round"><path d="M0 105 H420"/><path d="M250 0 V280"/><path d="M0 190 H420"/><path d="M100 105 V280"/><path d="M330 105 V280"/></g>
-        <path d="M0 105 H420" stroke="#E8C98F" stroke-width="12"/>
-        <text x="16" y="99" font-family="Outfit" font-size="11" fill="#7E5D42" font-weight="600">100 FEET ROAD</text>
-        <text x="258" y="270" font-family="Outfit" font-size="10" fill="#7E5D42" transform="rotate(-90 258 270)">12TH MAIN</text>
-        <g class="pin"><path d="M290 150 C276 132 276 112 290 104 C304 112 304 132 290 150Z" transform="translate(0,-8) scale(1)" fill="#693730"/><circle cx="290" cy="116" r="5" fill="#E8E1D4"/></g>
-        <rect x="236" y="150" width="108" height="24" rx="12" fill="#693730"/><text x="290" y="166" text-anchor="middle" font-family="Fraunces" font-weight="800" font-size="13" fill="#E8E1D4">Zizi's</text>
-      </svg>
+    <div class="map">
+      <span class="map-fallback">The map loads on zizis.cafe</span>
+      <iframe title="Map showing Zizi's location" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243.003617429899!2d77.65164647251368!3d12.968148229013805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1401e58f6773%3A0xe18a879101e55a20!2sLeon%27s%20Burgers%20%26%20Wings%20Jeevan%20Bhima%20Nagar!5e0!3m2!1sen!2sin!4v1795459256454!5m2!1sen!2sin" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
     <button class="vpill" data-open="photoModal">Photos of the space</button>
   </div>
@@ -503,7 +496,7 @@ html.has-cur .cur.small.on{opacity:1}
       <div class="social">
         <a href="#" onclick="return false" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 7.3a4.7 4.7 0 1 0 0 9.4 4.7 4.7 0 0 0 0-9.4zm0 7.7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm6-7.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0zM17 2H7a5 5 0 0 0-5 5v10a5 5 0 0 0 5 5h10a5 5 0 0 0 5-5V7a5 5 0 0 0-5-5zm3.3 15A3.3 3.3 0 0 1 17 20.3H7A3.3 3.3 0 0 1 3.7 17V7A3.3 3.3 0 0 1 7 3.7h10A3.3 3.3 0 0 1 20.3 7z"/></svg></a>
         <a href="#" onclick="return false" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.7 15V9l5.8 3z"/></svg></a>
-        <a href="#" onclick="return false" aria-label="Google Maps"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg></a>
+        <a href="https://maps.app.goo.gl/EoxHoUNVV4k3ypaF6" target="_blank" rel="noopener" aria-label="Directions on Google Maps"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg></a>
       </div>
     </div>
     <div>
