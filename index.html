@@ -261,6 +261,17 @@ footer .bigpaw{position:absolute;right:-60px;bottom:-80px;width:340px;opacity:.0
   footer .wrap{grid-template-columns:1fr}
   .hero .sprig{width:44vw;bottom:auto;top:16vh;right:4vw}
 }
+/* ---------- custom cursor (mouse devices only) ---------- */
+.cur{position:fixed;top:0;left:0;z-index:1000;pointer-events:none;border-radius:50%;opacity:0;transition:opacity .3s}
+.cur.small{background:#fff}
+.cur.big{width:30px;height:30px;margin:-15px 0 0 -15px;mix-blend-mode:difference}
+.cur.big i{display:block;width:100%;height:100%;border-radius:50%;background:#fff;transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.cur.big.hover i{transform:scale(2)}
+.cur.small{width:10px;height:10px;margin:-5px 0 0 -5px;animation:blink 1.6s ease-in-out infinite}
+@keyframes blink{50%{scale:.7}}
+html.has-cur, html.has-cur body, html.has-cur a, html.has-cur button, html.has-cur summary, html.has-cur .badge{cursor:none}
+html.has-cur .cur.on{opacity:1}
+html.has-cur .cur.small.on{opacity:1}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 </style>
 </head>
@@ -346,7 +357,7 @@ footer .bigpaw{position:absolute;right:-60px;bottom:-80px;width:340px;opacity:.0
       <article class="step" data-i="1">
         <div class="num">02 — THE FOOD</div>
         <h3 class="display">Good food with a bit of personality</h3>
-        <p>No mainstream café filler. Think <b>khow suey</b>, <b>omurice</b> and <b>bibimbap</b>, tortilla-crust pizzas, <b>shakshuka</b>, labneh berry toast, granola bowls and a whole <span class="hl">matcha bar</span>. There's plenty for <b>vegans</b>, vegetarians and everyone else, made fresh with lots of <b>healthy choices</b>.</p>
+        <p>No mainstream café filler. Think <b>khow suey</b>, <b>omurice</b> and <b>bibimbap</b>, tortilla-crust pizzas, <b>shakshuka</b>, akuri eggs, granola bowls and a whole <span class="hl">matcha bar</span>. There's plenty for <b>vegans</b>, vegetarians and everyone else, made fresh with lots of <b>healthy choices</b>.</p>
       </article>
       <article class="step" data-i="2" id="adopt">
         <div class="num">03 — THE CATS</div>
@@ -526,6 +537,7 @@ footer .bigpaw{position:absolute;right:-60px;bottom:-80px;width:340px;opacity:.0
   </div>
 </div>
 
+<div class="cur big" aria-hidden="true"><i></i></div><div class="cur small" aria-hidden="true"></div>
 <script>
 (function(){
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -569,7 +581,7 @@ const so = new IntersectionObserver(es=>es.forEach(e=>{
 steps.forEach(s=>so.observe(s)); steps[0].classList.add('on');
 
 /* ---- marquee rows ---- */
-const words=["matcha","khow suey","omurice","shakshuka","bibimbap","bagels","labneh toast","cheese boards","matcha affogato","tiramisu chia","thai basil bowl","flat white","granola bowls","shepherd's pie","hot honey eggs","fruit coolers"];
+const words=["matcha","khow suey","omurice","shakshuka","bibimbap","bagels","akuri eggs","cheese platter","matcha affogato","tiramisu chia pudding","thai basil bowl","flat white","granola bowl","shepherd's pie","hot honey eggs","fruit coolers"];
 const rows=[...document.querySelectorAll('.mrow')];
 rows.forEach((r,k)=>{const set=words.slice(k*4).concat(words.slice(0,k*4)); const html=set.map(w=>'<span>'+w+'</span>').join(''); r.innerHTML=html+html+html;});
 const marquee=document.querySelector('.marquee'); let auto=0;
@@ -661,6 +673,25 @@ form.addEventListener('submit',async e=>{
   }catch(err){note.textContent="Couldn't send right now. Please try again in a bit.";}
   finally{btn.disabled=false; if(widget!==null&&window.turnstile) turnstile.reset(widget);}
 });
+
+/* ---- custom cursor: dot follows fast, ring lags behind; ring doubles over clickable things ---- */
+if(matchMedia('(pointer:fine)').matches && !reduce){
+  document.documentElement.classList.add('has-cur');
+  const big=document.querySelector('.cur.big'), small=document.querySelector('.cur.small');
+  let mx=-100,my=-100,bx=-100,by=-100,sx=-100,sy=-100;
+  addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;big.classList.add('on');small.classList.add('on');},{passive:true});
+  document.addEventListener('mouseleave',()=>{big.classList.remove('on');small.classList.remove('on');});
+  (function loop(){
+    sx+=(mx-sx)*.55; sy+=(my-sy)*.55;   // ~0.1s feel
+    bx+=(mx-bx)*.18; by+=(my-by)*.18;   // ~0.3s feel
+    small.style.transform=`translate3d(${sx}px,${sy}px,0)`;
+    big.style.transform=`translate3d(${bx}px,${by}px,0)`;
+    requestAnimationFrame(loop);
+  })();
+  const HOVER='a,button,input,select,textarea,summary,.badge,.vpill';
+  document.addEventListener('mouseover',e=>{if(e.target.closest(HOVER))big.classList.add('hover');});
+  document.addEventListener('mouseout',e=>{if(e.target.closest(HOVER)&&!(e.relatedTarget&&e.relatedTarget.closest&&e.relatedTarget.closest(HOVER)))big.classList.remove('hover');});
+}
 
 /* ---- mobile nav ---- */
 const nav=document.querySelector('nav.bubbles'), burger=document.querySelector('.burger');
