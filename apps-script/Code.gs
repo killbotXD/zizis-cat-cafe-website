@@ -112,3 +112,10 @@ function clean_(value, max) {
 function json_(obj) {
   return ContentService.createTextOutput(JSON.stringify(obj)).setMimeType(ContentService.MimeType.JSON);
 }
+
+// Run this once from the editor (select "testNotification" → Run). It triggers Google's
+// permission prompt for sending email and sends you a sample notification.
+function testNotification() {
+  notify_('Test visitor', '+91 98765 43210', Session.getEffectiveUser().getEmail(),
+          'This is a test notification from the Zizi\'s contact form.');
+}
