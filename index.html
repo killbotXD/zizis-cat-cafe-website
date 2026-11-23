@@ -28,7 +28,7 @@ a{color:inherit}
 .wrap{max-width:1180px;margin:0 auto;padding:0 32px}
 
 /* ---------- header ---------- */
-header.site{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;justify-content:space-between;align-items:flex-start;padding:10px 14px;pointer-events:none}
+header.site{position:fixed;inset:0 0 auto 0;z-index:1100;display:flex;justify-content:space-between;align-items:flex-start;padding:10px 14px;pointer-events:none}
 header.site > *{pointer-events:auto}
 .logo{width:86px;height:86px;position:relative;display:block;text-decoration:none}
 .logo .ring{position:absolute;inset:0;animation:spin 22s linear infinite}
@@ -274,7 +274,11 @@ footer .bigpaw{position:absolute;right:-60px;bottom:-80px;width:340px;opacity:.0
 .cur.small{width:10px;height:10px;margin:-5px 0 0 -5px}
 .cur.small::after{content:"";position:absolute;inset:0;border-radius:50%;background:#fff;animation:blink 1.6s ease-in-out infinite}
 @keyframes blink{50%{scale:.7}}
-html.has-cur, html.has-cur body, html.has-cur a, html.has-cur button, html.has-cur summary, html.has-cur .badge{cursor:none}
+html.has-cur, html.has-cur body{cursor:none}
+html.has-cur :is(a,button,summary,.badge,.vpill){cursor:pointer}
+/* the hovered control is lifted above the cursor, so the disc slides underneath it */
+.cur-under{z-index:1001}
+.cur-under:not(.badge,.vpill,.logo,.bubble){position:relative}
 html.has-cur .cur.on{opacity:1}
 html.has-cur .cur.small.on{opacity:1}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
@@ -693,8 +697,18 @@ if(matchMedia('(pointer:fine)').matches && !reduce){
     requestAnimationFrame(loop);
   })();
   const HOVER='a,button,input,select,textarea,summary,.badge,.vpill';
-  document.addEventListener('mouseover',e=>{if(e.target.closest(HOVER))big.classList.add('hover');});
-  document.addEventListener('mouseout',e=>{if(e.target.closest(HOVER)&&!(e.relatedTarget&&e.relatedTarget.closest&&e.relatedTarget.closest(HOVER)))big.classList.remove('hover');});
+  let under=null;
+  document.addEventListener('mouseover',e=>{
+    const el=e.target.closest(HOVER); if(!el||el===under) return;
+    if(under) under.classList.remove('cur-under');
+    under=el; el.classList.add('cur-under'); big.classList.add('hover');
+  });
+  document.addEventListener('mouseout',e=>{
+    if(!under) return;
+    const to=e.relatedTarget&&e.relatedTarget.closest?e.relatedTarget.closest(HOVER):null;
+    if(to===under) return;
+    under.classList.remove('cur-under'); under=null; big.classList.remove('hover');
+  });
 }
 
 /* ---- mobile nav ---- */
