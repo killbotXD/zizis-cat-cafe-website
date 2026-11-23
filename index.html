@@ -623,8 +623,8 @@ ds.forEach(d=>d.addEventListener('toggle',()=>{if(d.open)ds.forEach(o=>{if(o!==d
 
 /* ---- form → Google Sheet (via Apps Script) + Cloudflare Turnstile ---- */
 const CONFIG={
-  FORM_ENDPOINT:"",       // paste the Apps Script web-app URL (…/exec) here
-  TURNSTILE_SITE_KEY:""   // paste the Turnstile *site* key here (the secret key goes in Apps Script, never here)
+  FORM_ENDPOINT:"https://script.google.com/macros/s/AKfycbwwGkoO8sLrOoKQhgV4D6I3sfDU2bvH8XBEUB9lFnGEz7DGrBN2SSramL5REw1Ytp7qzA/exec",       // paste the Apps Script web-app URL (…/exec) here
+  TURNSTILE_SITE_KEY:"0x4AAAAAAGPMLnUvc0kEMQ45"   // paste the Turnstile *site* key here (the secret key goes in Apps Script, never here)
 };
 const form=document.querySelector('form.msg'), note=form.querySelector('.note'), btn=form.querySelector('button');
 let widget=null;
