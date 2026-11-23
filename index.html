@@ -263,11 +263,11 @@ footer .bigpaw{position:absolute;right:-60px;bottom:-80px;width:340px;opacity:.0
 }
 /* ---------- custom cursor (mouse devices only) ---------- */
 .cur{position:fixed;top:0;left:0;z-index:1000;pointer-events:none;border-radius:50%;opacity:0;transition:opacity .3s}
-.cur.small{background:#fff}
 .cur.big{width:30px;height:30px;margin:-15px 0 0 -15px;mix-blend-mode:difference}
 .cur.big i{display:block;width:100%;height:100%;border-radius:50%;background:#fff;transition:transform .3s cubic-bezier(.2,.8,.2,1)}
 .cur.big.hover i{transform:scale(2)}
-.cur.small{width:10px;height:10px;margin:-5px 0 0 -5px;animation:blink 1.6s ease-in-out infinite}
+.cur.small{width:10px;height:10px;margin:-5px 0 0 -5px}
+.cur.small::after{content:"";position:absolute;inset:0;border-radius:50%;background:#fff;animation:blink 1.6s ease-in-out infinite}
 @keyframes blink{50%{scale:.7}}
 html.has-cur, html.has-cur body, html.has-cur a, html.has-cur button, html.has-cur summary, html.has-cur .badge{cursor:none}
 html.has-cur .cur.on{opacity:1}
