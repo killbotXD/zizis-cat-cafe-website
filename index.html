@@ -466,7 +466,7 @@ footer .bigpaw{position:absolute;right:-60px;bottom:-80px;width:340px;opacity:.0
       <p class="lead">Got another question, a cat to tell us about, or an event idea? Write to us below.</p>
       <div class="fields">
         <input name="name" placeholder="Name" aria-label="Name" maxlength="100" required>
-        <input name="phone" type="tel" placeholder="Phone" aria-label="Phone" maxlength="30">
+        <input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Phone (optional)" aria-label="Phone" maxlength="20">
         <input class="full" name="email" type="email" placeholder="Email" aria-label="Email" maxlength="120" required>
         <textarea class="full" name="message" placeholder="Message" aria-label="Message" maxlength="3000" required></textarea>
         <!-- honeypot: humans never see this, bots fill it -->
@@ -636,9 +636,19 @@ if(CONFIG.TURNSTILE_SITE_KEY){
   sc.onerror=()=>{note.textContent="The spam check couldn't load. Please refresh, or reach us on Instagram.";};
   document.head.appendChild(sc);
 }
+// Phone is optional. If given: Indian mobile (+91/0 optional, 10 digits starting 6–9),
+// Indian landline with STD code (0 + 10 digits), or an international number with + / 00 (8–15 digits).
+function phoneOk(v){
+  const d=v.replace(/[\s\-().]/g,'');
+  if(!d) return true;
+  return /^(?:\+91|0091|91|0)?[6-9]\d{9}$/.test(d) || /^0\d{10}$/.test(d) || /^(?:\+|00)[1-9]\d{7,14}$/.test(d);
+}
+const phoneEl=form.querySelector('[name=phone]');
+phoneEl.addEventListener('input',()=>phoneEl.setCustomValidity(''));
 form.addEventListener('submit',async e=>{
   e.preventDefault();
   if(!CONFIG.FORM_ENDPOINT||!CONFIG.TURNSTILE_SITE_KEY){note.textContent="This is a preview. The form isn't connected yet.";return;}
+  phoneEl.setCustomValidity(phoneOk(phoneEl.value)?'':'Please enter a valid phone number, e.g. 98765 43210 or +44 20 7946 0958.');
   if(!form.checkValidity()){form.reportValidity();return;}
   const fd=new FormData(form);
   if(!fd.get('cf-turnstile-response')){note.textContent="Please complete the quick check above the button.";return;}
@@ -647,7 +657,7 @@ form.addEventListener('submit',async e=>{
     const res=await fetch(CONFIG.FORM_ENDPOINT,{method:'POST',body:new URLSearchParams(fd)}); // urlencoded = no CORS preflight
     const out=await res.json();
     if(out.ok){form.reset();note.textContent="Thanks! We'll get back to you soon.";}
-    else note.textContent=out.error==='captcha'?"The spam check failed. Please try again.":"Something went wrong. Please try again.";
+    else note.textContent=out.error==='captcha'?"The spam check failed. Please try again.":out.error==='phone'?"That phone number doesn't look right. Please check it.":"Something went wrong. Please try again.";
   }catch(err){note.textContent="Couldn't send right now. Please try again in a bit.";}
   finally{btn.disabled=false; if(widget!==null&&window.turnstile) turnstile.reset(widget);}
 });
