@@ -1,10 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-IN">
 <head>
 <meta charset="utf-8">
-<meta name="description" content="Zizi's — a cosy cat café and adoption corner in Indiranagar, Bengaluru. Good food, great company, all day.">
+<meta name="description" content="Zizi's is a cosy cat café in Indiranagar, Bengaluru: matcha, khow suey, omurice and bagels, plus rescue cats you can meet and adopt. Open every day.">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Zizi's — Cat Café, Indiranagar</title>
+<title>Zizi's — Cat Café in Indiranagar, Bengaluru</title>
+<link rel="canonical" href="https://zizis.cafe/">
+<meta name="theme-color" content="#36493B">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Zizi's Cat Café">
+<meta property="og:locale" content="en_IN">
+<meta property="og:url" content="https://zizis.cafe/">
+<meta property="og:title" content="Zizi's — Cat Café in Indiranagar, Bengaluru">
+<meta property="og:description" content="Zizi's is a cosy cat café in Indiranagar, Bengaluru: matcha, khow suey, omurice and bagels, plus rescue cats you can meet and adopt. Open every day.">
+<meta property="og:image" content="https://zizis.cafe/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Zizi the calico cat next to the words Zizi's Cat Café, Indiranagar, Bengaluru">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Zizi's — Cat Café in Indiranagar, Bengaluru">
+<meta name="twitter:description" content="Zizi's is a cosy cat café in Indiranagar, Bengaluru: matcha, khow suey, omurice and bagels, plus rescue cats you can meet and adopt. Open every day.">
+<meta name="twitter:image" content="https://zizis.cafe/assets/og-image.jpg">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "CafeOrCoffeeShop",
+ "@id": "https://zizis.cafe/#cafe",
+ "name": "Zizi's",
+ "alternateName": "Zizi's Cat Café",
+ "url": "https://zizis.cafe/",
+ "description": "A cosy cat café and adoption corner in Indiranagar, Bengaluru, serving matcha, coffee, healthy bowls and comfort food from around Asia, with resident rescue cats.",
+ "image": [
+  "https://zizis.cafe/assets/og-image.jpg",
+  "https://zizis.cafe/assets/img/zizi_wide.jpg"
+ ],
+ "logo": "https://zizis.cafe/icon-512.png",
+ "address": {
+  "@type": "PostalAddress",
+  "streetAddress": "Third floor, above Leon Grill, Indiranagar",
+  "addressLocality": "Bengaluru",
+  "addressRegion": "Karnataka",
+  "addressCountry": "IN"
+ },
+ "geo": {
+  "@type": "GeoCoordinates",
+  "latitude": 12.968148,
+  "longitude": 77.651646
+ },
+ "hasMap": "https://maps.app.goo.gl/EoxHoUNVV4k3ypaF6",
+ "openingHoursSpecification": [
+  {
+   "@type": "OpeningHoursSpecification",
+   "dayOfWeek": [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday"
+   ],
+   "opens": "12:00",
+   "closes": "20:00"
+  },
+  {
+   "@type": "OpeningHoursSpecification",
+   "dayOfWeek": [
+    "Saturday",
+    "Sunday"
+   ],
+   "opens": "10:30",
+   "closes": "20:00"
+  }
+ ],
+ "servesCuisine": [
+  "Café",
+  "Asian",
+  "Healthy food",
+  "Vegan options"
+ ],
+ "priceRange": "₹₹",
+ "currenciesAccepted": "INR",
+ "hasMenu": "https://zizis.cafe/#menu",
+ "sameAs": [
+  "https://www.instagram.com/zizis.cafe/"
+ ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Fraunces:opsz,wght,SOFT,WONK@9..144,100..900,0..100,0..1&family=Outfit:wght@400;500;600;700&display=swap">
@@ -62,6 +146,7 @@ nav.bubbles{display:flex;gap:10px}
 .blob.k5{width:12vw;height:10vw;left:22vw;bottom:-4vw;background:#E9D7CF;animation-delay:-12s}
 @keyframes drift{0%{border-radius:42% 58% 63% 37% / 45% 40% 60% 55%;translate:0 0}50%{border-radius:58% 42% 40% 60% / 55% 60% 40% 45%}100%{border-radius:38% 62% 55% 45% / 40% 55% 45% 60%;translate:2vw -2vh}}
 .hero .wrap{position:relative;width:100%;max-width:none;padding:0 4vw}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 .headline{font-size:clamp(64px,10.5vw,168px);color:var(--forest);display:block}
 .headline .row{display:block;white-space:nowrap;height:1.02em}
 .headline .fixed{color:var(--burgundy)}
@@ -341,9 +426,10 @@ html.has-cur .cur.small.on{opacity:1}
     </g>
   </svg>
   <div class="wrap">
-    <h1 class="headline display" aria-label="Zizi's Cat Café">
-      <span class="row"><span class="fixed">Z</span><span class="swap"></span></span>
-      <span class="row"><span class="fixed">C</span><span class="swap"></span></span>
+    <h1 class="headline display">
+      <span class="sr">Zizi's Cat Café in Indiranagar, Bengaluru</span>
+      <span class="row" aria-hidden="true"><span class="fixed">Z</span><span class="swap"></span></span>
+      <span class="row" aria-hidden="true"><span class="fixed">C</span><span class="swap"></span></span>
     </h1>
     <p class="tag script rv">good food · great company · all day</p>
     <button class="pill rv" data-open="menuModal">Menu</button>
@@ -378,9 +464,9 @@ html.has-cur .cur.small.on{opacity:1}
     </div>
     <div class="sticky">
       <div class="frame">
-        <div class="slide on" data-i="0"><img src="assets/img/cof_tall.jpg" alt="Espresso in a burgundy cup on a walnut table"></div>
-        <div class="slide" data-i="1"><img src="assets/img/cof_sq.jpg" alt="Coffee at Zizi's"></div>
-        <div class="slide" data-i="2"><img src="assets/img/zizi_tall.jpg" alt="Zizi, our calico, looking over her shoulder"></div>
+        <div class="slide on" data-i="0"><img loading="lazy" decoding="async" src="assets/img/cof_tall.jpg" alt="Espresso in a burgundy cup on a walnut table"></div>
+        <div class="slide" data-i="1"><img loading="lazy" decoding="async" src="assets/img/cof_sq.jpg" alt="Coffee at Zizi's"></div>
+        <div class="slide" data-i="2"><img loading="lazy" decoding="async" src="assets/img/zizi_tall.jpg" alt="Zizi, our calico, looking over her shoulder"></div>
         <div class="dots"><i class="on"></i><i></i><i></i></div>
       </div>
     </div>
@@ -401,20 +487,20 @@ html.has-cur .cur.small.on{opacity:1}
 <!-- MENU GRID -->
 <section class="menu" id="menu">
   <div class="tiles">
-    <div class="tile rv"><img src="assets/img/cof_cup.jpg" alt=""></div>
+    <div class="tile rv"><img loading="lazy" decoding="async" src="assets/img/cof_cup.jpg" alt="Espresso in a burgundy cup, seen from above"></div>
     <div class="tile art t-f rv"><svg><use href="#matcha"/></svg><em>matcha</em></div>
-    <div class="tile rv"><img src="assets/img/zizi_face.jpg" alt=""></div>
+    <div class="tile rv"><img loading="lazy" decoding="async" src="assets/img/zizi_face.jpg" alt="Close-up of Zizi, the café's calico cat"></div>
     <div class="tile art t-b rv"><svg><use href="#bowl"/></svg><em>khow suey</em></div>
     <div class="tile art t-r rv"><svg><use href="#bagel"/></svg><em>bagels</em></div>
     <div class="tile art t-s rv"><svg><use href="#paw"/></svg></div>
-    <div class="tile rv"><img src="assets/img/cof_sq.jpg" alt=""></div>
+    <div class="tile rv"><img loading="lazy" decoding="async" src="assets/img/cof_sq.jpg" alt="Espresso with a spoon on a burgundy saucer"></div>
     <div class="tile art t-c rv"><svg><use href="#catface"/></svg></div>
-    <div class="tile rv"><img src="assets/img/zizi_sq.jpg" alt=""></div>
+    <div class="tile rv"><img loading="lazy" decoding="async" src="assets/img/zizi_sq.jpg" alt="Zizi curled up on a cushion"></div>
     <div class="tile art t-w rv"><svg><use href="#cup"/></svg><em>flat white</em></div>
     <div class="tile art t-b rv"><svg><use href="#heart"/></svg></div>
-    <div class="tile rv"><img src="assets/img/zizi_face.jpg" alt="" style="transform:scaleX(-1)"></div>
+    <div class="tile rv"><img loading="lazy" decoding="async" src="assets/img/zizi_face.jpg" alt="Zizi's green eyes, up close" style="transform:scaleX(-1)"></div>
     <div class="tile art t-f rv"><svg><use href="#bowl"/></svg><em>granola</em></div>
-    <div class="tile rv"><img src="assets/img/cof_cup.jpg" alt="" style="transform:rotate(90deg)"></div>
+    <div class="tile rv"><img loading="lazy" decoding="async" src="assets/img/cof_cup.jpg" alt="A freshly pulled espresso" style="transform:rotate(90deg)"></div>
     <div class="tile art t-s rv"><svg><use href="#matcha"/></svg><em>iced tea</em></div>
   </div>
   <button class="badge" data-open="menuModal" aria-label="Open the menu">
@@ -449,8 +535,8 @@ html.has-cur .cur.small.on{opacity:1}
 <section class="insta">
   <h2 class="display rv"><a href="https://www.instagram.com/zizis.cafe/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.4"/><circle cx="17.6" cy="6.4" r=".6" fill="currentColor"/></svg>Instagram</a></h2>
   <div class="fan rv">
-    <div class="card l"><img src="assets/img/cof_tall.jpg" alt=""></div>
-    <div class="card r"><img src="assets/img/zizi_tall.jpg" alt=""></div>
+    <div class="card l"><img loading="lazy" decoding="async" src="assets/img/cof_tall.jpg" alt="Espresso on a walnut table at Zizi's"></div>
+    <div class="card r"><img loading="lazy" decoding="async" src="assets/img/zizi_tall.jpg" alt="Zizi the calico cat"></div>
     <div class="card m">
       <div class="top script">meow &amp; then</div>
       <div class="paper">
@@ -524,7 +610,27 @@ html.has-cur .cur.small.on{opacity:1}
     <button class="x" data-close aria-label="Close">×</button>
     <h2 class="display">ZIZI'S MENU</h2>
     <p class="sub script">good food · great company · all day</p>
-    <div class="mcols" id="mcols"></div>
+    <div class="mcols" id="mcols">
+      <div class="msec"><h4>Eggs<small>served with toast</small></h4><div class="mi"><span><span class="v"></span>Green Omelette</span><span>320</span></div><div class="mi"><span><span class="v"></span>Spanish Omelette</span><span>340</span></div><div class="mi"><span><span class="v"></span>Classic Masala Omelette</span><span>300</span></div><div class="mi"><span><span class="v"></span>Shakshuka</span><span>340</span></div><div class="mi"><span><span class="v"></span>Cheese &amp; Sun-dried Tomato Scramble</span><span>360</span></div><div class="mi"><span><span class="v"></span>Akuri Eggs</span><span>340</span></div><div class="mi"><span><span class="v"></span>Hot Honey Eggs</span><span>360</span></div></div>
+      <div class="msec"><h4>Add ons</h4><div class="mi"><span>Hash Brown</span><span>120</span></div><div class="mi"><span>Baked Beans</span><span>100</span></div><div class="mi"><span>Arugula Side Salad</span><span>100</span></div></div>
+      <div class="msec"><h4>Bagels</h4><div class="mi"><span><span class="v"></span>Classic Cream Cheese</span><span>280</span></div><div class="mi"><span><span class="v"></span>Cream Cheese, Egg &amp; Pesto</span><span>380</span></div><div class="mi"><span>Cream Cheese, Chicken &amp; Egg</span><span>380</span></div></div>
+      <div class="msec"><h4>Quiches<small>tortilla crust</small></h4><div class="mi"><span><span class="v"></span>Mushroom &amp; Cheese</span><span>320</span></div><div class="mi"><span><span class="v"></span>Spinach &amp; Caramelised Onion</span><span>300</span></div><div class="mi"><span>Roast Chicken</span><span>340</span></div></div>
+      <div class="msec"><h4>Healthy Bowls</h4><div class="mi"><span><span class="v"></span>Homemade Granola Bowl</span><span>320</span></div><div class="mi"><span><span class="v"></span>Smoothie Bowl</span><span>320</span></div><div class="mi"><span><span class="v"></span>Tiramisu Chia Pudding</span><span>320</span></div><div class="mi"><span><span class="v"></span>Chocolate Overnight Oats</span><span>300</span></div></div>
+      <div class="msec"><h4>Sandwiches</h4><div class="mi"><span><span class="v"></span>Truffle Mushroom &amp; Grilled Cheese</span><span>340</span></div><div class="mi"><span>Chicken Mustard Melt</span><span>360</span></div><div class="mi"><span><span class="v"></span>Avocado Egg Sando</span><span>320</span></div><div class="mi"><span><span class="v"></span>Labneh Berry Toast</span><span>320</span></div></div>
+      <div class="msec"><h4>Pizzas<small>tortilla crust</small></h4><div class="mi"><span>🌿 Vegan Marinara</span><span>320</span></div><div class="mi"><span><span class="v"></span>Punchy Mushroom</span><span>340</span></div><div class="mi"><span>Chicken Pizzaiola</span><span>380</span></div></div>
+      <div class="msec"><h4>Boards<small>with house sourdough</small></h4><div class="mi"><span><span class="v"></span>Classic Cheese Platter</span><span>720</span></div><div class="mi"><span>🌿 Vegan Mezze Board</span><span>620</span></div></div>
+      <div class="msec"><h4>Salads</h4><div class="mi"><span><span class="v"></span>Seasonal Fruit &amp; Arugula</span><span>340</span></div><div class="mi"><span>🌿 Vegan Tofu Salad</span><span>320</span></div><div class="mi"><span>Honey Mustard Chicken</span><span>380</span></div><div class="mi"><span><span class="v"></span>Quinoa Chickpea</span><span>340</span></div><div class="mi"><span><span class="v"></span>Potato Egg Avocado</span><span>340</span></div></div>
+      <div class="msec"><h4>Appetizers</h4><div class="mi"><span><span class="v"></span>Bruschetta</span><span>280</span></div><div class="mi"><span><span class="v"></span>Pesto Tomato Crostini</span><span>280</span></div><div class="mi"><span><span class="v"></span>Garlic Cheese Sourdough</span><span>280</span></div><div class="mi"><span>Burrito Cups · veg / chicken</span><span>320 / 360</span></div><div class="mi"><span>Nachos · veg / chicken</span><span>320 / 360</span></div></div>
+      <div class="msec"><h4>Mains<small>veg / chicken</small></h4><div class="mi"><span>Omurice</span><span>380 / 420</span></div><div class="mi"><span>Khow Suey</span><span>380 / 430</span></div><div class="mi"><span>Thai Basil Bowl</span><span>360 / 400</span></div><div class="mi"><span>Bibimbap</span><span>380 / 420</span></div><div class="mi"><span>Shepherd's Pie</span><span>360 / 420</span></div><div class="mi"><span>Tagine &amp; Couscous</span><span>380 / 440</span></div></div>
+      <div class="msec"><h4>Desserts</h4><div class="mi"><span><span class="v"></span>Baked Yoghurt</span><span>260</span></div><div class="mi"><span><span class="v"></span>Greek Yoghurt Mousse</span><span>280</span></div><div class="mi"><span><span class="v"></span>Baked Peach &amp; Ice Cream</span><span>320</span></div><div class="mi"><span><span class="v"></span>Flourless Lemon Berry Cake</span><span>300</span></div><div class="mi"><span>🌿 Sorbets</span><span>240</span></div><div class="mi"><span><span class="v"></span>Ice Cream</span><span>200</span></div></div>
+      <div class="msec"><h4>Matcha</h4><div class="mi"><span>Plain</span><span>270</span></div><div class="mi"><span>Strawberry · Elderflower · Jasmine</span><span>290</span></div><div class="mi"><span>Blueberry · Blue Spirulina · Mango</span><span>310</span></div><div class="mi"><span>Matcha Affogato</span><span>310</span></div></div>
+      <div class="msec"><h4>Hot Tea</h4><div class="mi"><span>Ginseng Oolong</span><span>220</span></div><div class="mi"><span>Jasmine Pearls</span><span>200</span></div><div class="mi"><span>Chamomile</span><span>160</span></div><div class="mi"><span>Assam</span><span>160</span></div><div class="mi"><span>Darjeeling · Black Tea · Masala Chai</span><span>150</span></div></div>
+      <div class="msec"><h4>Iced Tea</h4><div class="mi"><span>Lemon · Elderflower · Jasmine · Peach</span><span>180</span></div></div>
+      <div class="msec"><h4>Coffee<small>hot / iced</small></h4><div class="mi"><span>Espresso</span><span>120</span></div><div class="mi"><span>Americano</span><span>150</span></div><div class="mi"><span>Macchiato · Flat White</span><span>150</span></div><div class="mi"><span>Cappuccino · Café Latte</span><span>180</span></div><div class="mi"><span>Cold Coffee</span><span>200</span></div><div class="mi"><span>Affogato</span><span>220</span></div></div>
+      <div class="msec"><h4>Hot Chocolate</h4><div class="mi"><span>Plain</span><span>180</span></div><div class="mi"><span>Spiced · Dark</span><span>200</span></div></div>
+      <div class="msec"><h4>Milkshakes</h4><div class="mi"><span>Peanut Banana · Strawberry Banana</span><span>250</span></div><div class="mi"><span>Oreo · KitKat</span><span>280</span></div><div class="mi"><span>Blueberry Yoghurt · Mango</span><span>280</span></div><div class="mi"><span>Brownie Hazelnut</span><span>300</span></div></div>
+      <div class="msec"><h4>Fruit Coolers<small>blended</small></h4><div class="mi"><span>Watermelon</span><span>180</span></div><div class="mi"><span>Pineapple Ginger</span><span>200</span></div><div class="mi"><span>Mango (seasonal)</span><span>200</span></div></div>
+    </div>
     <div class="mfoot"><span class="mi" style="display:inline"><span class="v"></span></span>vegetarian &nbsp;·&nbsp; 🌿 vegan &nbsp;·&nbsp; prices in ₹, taxes extra<br>Please don't feed the cats. Tell us about any allergies. Weekend tables are 90 minutes.</div>
   </div>
 </div>
@@ -535,7 +641,7 @@ html.has-cur .cur.small.on{opacity:1}
     <button class="x" data-close aria-label="Close">×</button>
     <h2 class="display" style="font-size:46px">Inside Zizi's</h2>
     <p class="sub script">photos coming soon. Here's a sneak peek</p>
-    <div class="gal"><img src="assets/img/zizi_wide.jpg" alt=""><img src="assets/img/cof.jpg" alt=""></div>
+    <div class="gal"><img loading="lazy" decoding="async" src="assets/img/zizi_wide.jpg" alt="Zizi relaxing at home"><img loading="lazy" decoding="async" src="assets/img/cof.jpg" alt="Espresso on a walnut table"></div>
   </div>
 </div>
 
@@ -606,31 +712,6 @@ function tick(){
   requestAnimationFrame(tick);
 }
 requestAnimationFrame(tick);
-
-/* ---- menu data (Menu v2) ---- */
-const V='<span class="v"></span>', VG='🌿 ';
-const menu=[
- ["Eggs","served with toast",[[V+"Green Omelette",320],[V+"Spanish Omelette",340],[V+"Classic Masala Omelette",300],[V+"Shakshuka",340],[V+"Cheese & Sun-dried Tomato Scramble",360],[V+"Akuri Eggs",340],[V+"Hot Honey Eggs",360]]],
- ["Add ons","",[["Hash Brown",120],["Baked Beans",100],["Arugula Side Salad",100]]],
- ["Bagels","",[[V+"Classic Cream Cheese",280],[V+"Cream Cheese, Egg & Pesto",380],["Cream Cheese, Chicken & Egg",380]]],
- ["Quiches","tortilla crust",[[V+"Mushroom & Cheese",320],[V+"Spinach & Caramelised Onion",300],["Roast Chicken",340]]],
- ["Healthy Bowls","",[[V+"Homemade Granola Bowl",320],[V+"Smoothie Bowl",320],[V+"Tiramisu Chia Pudding",320],[V+"Chocolate Overnight Oats",300]]],
- ["Sandwiches","",[[V+"Truffle Mushroom & Grilled Cheese",340],["Chicken Mustard Melt",360],[V+"Avocado Egg Sando",320],[V+"Labneh Berry Toast",320]]],
- ["Pizzas","tortilla crust",[[VG+"Vegan Marinara",320],[V+"Punchy Mushroom",340],["Chicken Pizzaiola",380]]],
- ["Boards","with house sourdough",[[V+"Classic Cheese Platter",720],[VG+"Vegan Mezze Board",620]]],
- ["Salads","",[[V+"Seasonal Fruit & Arugula",340],[VG+"Vegan Tofu Salad",320],["Honey Mustard Chicken",380],[V+"Quinoa Chickpea",340],[V+"Potato Egg Avocado",340]]],
- ["Appetizers","",[[V+"Bruschetta",280],[V+"Pesto Tomato Crostini",280],[V+"Garlic Cheese Sourdough",280],["Burrito Cups · veg / chicken","320 / 360"],["Nachos · veg / chicken","320 / 360"]]],
- ["Mains","veg / chicken",[["Omurice","380 / 420"],["Khow Suey","380 / 430"],["Thai Basil Bowl","360 / 400"],["Bibimbap","380 / 420"],["Shepherd's Pie","360 / 420"],["Tagine & Couscous","380 / 440"]]],
- ["Desserts","",[[V+"Baked Yoghurt",260],[V+"Greek Yoghurt Mousse",280],[V+"Baked Peach & Ice Cream",320],[V+"Flourless Lemon Berry Cake",300],[VG+"Sorbets",240],[V+"Ice Cream",200]]],
- ["Matcha","",[["Plain",270],["Strawberry · Elderflower · Jasmine",290],["Blueberry · Blue Spirulina · Mango",310],["Matcha Affogato",310]]],
- ["Hot Tea","",[["Ginseng Oolong",220],["Jasmine Pearls",200],["Chamomile",160],["Assam",160],["Darjeeling · Black Tea · Masala Chai",150]]],
- ["Iced Tea","",[["Lemon · Elderflower · Jasmine · Peach",180]]],
- ["Coffee","hot / iced",[["Espresso",120],["Americano",150],["Macchiato · Flat White",150],["Cappuccino · Café Latte",180],["Cold Coffee",200],["Affogato",220]]],
- ["Hot Chocolate","",[["Plain",180],["Spiced · Dark",200]]],
- ["Milkshakes","",[["Peanut Banana · Strawberry Banana",250],["Oreo · KitKat",280],["Blueberry Yoghurt · Mango",280],["Brownie Hazelnut",300]]],
- ["Fruit Coolers","blended",[["Watermelon",180],["Pineapple Ginger",200],["Mango (seasonal)",200]]]
-];
-document.getElementById('mcols').innerHTML=menu.map(([h,s,items])=>`<div class="msec"><h4>${h}${s?`<small>${s}</small>`:''}</h4>${items.map(([n,p])=>`<div class="mi"><span>${n}</span><span>${p}</span></div>`).join('')}</div>`).join('');
 
 /* ---- modals ---- */
 document.querySelectorAll('[data-open]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();document.getElementById(b.dataset.open).classList.add('open');document.body.style.overflow='hidden';}));

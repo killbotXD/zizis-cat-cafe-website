@@ -1,0 +1,20 @@
+{
+ "name": "Zizi's Cat Caf\u00e9",
+ "short_name": "Zizi's",
+ "start_url": "/",
+ "display": "browser",
+ "background_color": "#F5F0E6",
+ "theme_color": "#36493B",
+ "icons": [
+  {
+   "src": "/icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png"
+  },
+  {
+   "src": "/icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  }
+ ]
+}
