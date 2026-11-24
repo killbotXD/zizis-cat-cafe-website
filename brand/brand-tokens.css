@@ -1,0 +1,14 @@
+:root {
+  --zz-forest: #36493B;        /* primary */
+  --zz-burgundy: #693730;      /* primary accent */
+  --zz-walnut: #7E5D42;
+  --zz-brass: #B08D57;         /* small accents only */
+  --zz-beige: #D4C6A6;
+  --zz-cream: #E8E1D4;
+  --zz-paper: #F5F0E6;
+  --zz-calico-tan: #C98A4B;    /* cat mark only */
+  --zz-calico-brown: #3B2A22;  /* cat mark only */
+  --zz-font-display: 'Fraunces', serif;  /* 800, font-variation-settings: 'SOFT' 100, 'WONK' 1 */
+  --zz-font-body: 'Outfit', sans-serif;
+  --zz-font-hand: 'Caveat', cursive;
+}
